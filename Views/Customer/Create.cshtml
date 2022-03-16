@@ -1,0 +1,78 @@
+﻿@model Customer
+@{
+    //ViewData["Title"] = "Create";
+
+    //ViewData["Title"] = Model != null ? "Edit" : "Create";
+    ViewData["Title"] = Model == null ? "Add Customer" : "Edit Customer";
+    ViewData["BtnTitle"] = Model == null ?  "Save" : "Update";
+    ViewData["Action"] = Model == null ?  "Create" : "Update";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col">
+        <form asp-action="@ViewData["Action"]" asp-controller="Customer">
+            <div class="row mb-3">
+                <input type="hidden" asp-for="CustomerID" />
+            </div>
+            <div class="row mb-3">
+                <label asp-for="CustomerName" class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">
+                    <input asp-for="CustomerName" class="form-control" />
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label asp-for="CustomerEmail" class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">
+                    <input asp-for="CustomerEmail" class="form-control" />
+                    <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label asp-for="CustomerGender" class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">
+                    <input asp-for="CustomerGender" type="radio" value="Male" class="form-check-input" id="iMale" />
+                    <label asp-for="CustomerGender" class="form-check-label" for="iMale">Male</label>
+                    <input asp-for="CustomerGender" type="radio" value="Female" class="form-check-input" id="iFemale" />
+                    <label asp-for="CustomerGender" class="form-check-label" for="iFemale">Female</label>
+                    <input asp-for="CustomerGender" type="radio" value="Unspecified" class="form-check-input" id="iUnspecified" />
+                    <label asp-for="CustomerGender" class="form-check-label" for="iUnspecified">Unspecified</label>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label asp-for="CustomerDOB" class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">
+                    <input asp-for="CustomerDOB" class="form-control" />
+                    <span asp-validation-for="CustomerDOB" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label asp-for="CustomerPhone" class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">
+                    <input asp-for="CustomerPhone" class="form-control" />
+                    <i class="fst-italic display-bl">Ex. +91 99999 99999</i>
+                    <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label asp-for="CustomerSurvey" class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">
+                    <input asp-for="CustomerSurvey" class="form-control" />
+                    <span asp-validation-for="CustomerSurvey" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">
+                    <button type="submit" class="btn btn-primary">@ViewData["BtnTitle"]</button>
+                    <button asp-action="Index" type="submit" class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col">
+    </div>
+</div>
+
